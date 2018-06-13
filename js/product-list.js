@@ -5,6 +5,7 @@ class ProductList {
             .then(result => result.json() )
             .then(products => {
                 this.products = products;
+                this.renderCarousel(renderContainer, products);
                 this.renderProducts(renderContainer, products);
                 this.addEventListeners();
             })
@@ -12,6 +13,18 @@ class ProductList {
     getProductById(id) {
         return this.products.find(el => el.id === id);
     }
+    renderCarousel(container, products) {
+        let carouselDomString = ''
+        products.forEach(product => {
+            carouselDomString +=
+                `<div class="carousel-item">
+                  <img class="d-block w-100" src="img/products/${product.image}"
+                      alt="${product.title}">
+                </div>`;
+        });
+        container.html(carouselDomString);
+    }
+    
     renderProducts(container, products) {
         let productListDomString = ''
         products.forEach(product => {
