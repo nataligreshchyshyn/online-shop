@@ -17,9 +17,22 @@ class ProductList {
         let carouselDomString = ''
         products.forEach(product => {
             carouselDomString +=
-                `<div class="carousel-item">
-                  <img class="d-block w-100" src="img/products/${product.image}"
-                      alt="${product.title}">
+                `<div class="carousel-inner">
+                    <div class="carousel-item carousel-item-next carousel-item-left">
+                      <div class="intro mx-auto">
+                        <h1 class="display-4">Welcome to Vydelka</h1>
+                        <p class="lead">Best online shop in the World!</p>
+                        <hr class="my-4">
+                        <p>Buy with discount today</p>
+                        <p class="lead">
+                          <a class="btn btn-primary btn-lg smooth" href="#products" role="button">Start shopping</a>
+                        </p>
+                      </div>    
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="img/products/${product.image}"
+                          alt="${product.title}">
+                    </div>
                 </div>`;
         });
         container.html(carouselDomString);
