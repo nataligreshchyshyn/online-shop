@@ -7,4 +7,5 @@ renderCarousel(container, products) {
                       alt="${product.title}">
                 </div>`;
         });
+        container.html(carouselDomString);
     }
